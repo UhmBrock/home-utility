@@ -1,0 +1,44 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "build:watch": "npx tsc --watch",
+    "start": "node dist/index.js",
+    "start:watch": "nodemon dist/index.js",
+    "dev": "npx concurrently \"npm run build:watch\" \"npm run start:watch\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "connect-ensure-login": "^0.1.1",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "csurf": "^1.11.0",
+    "dotenv": "^16.3.1",
+    "express-session": "^1.17.3",
+    "googleapis": "^120.0.0",
+    "http-errors": "^2.0.0",
+    "passport": "^0.6.0",
+    "passport-google-oauth20": "^2.0.0",
+    "path": "^0.12.7",
+    "pluralize": "^8.0.0"
+  },
+  "devDependencies": {
+    "@types/connect-ensure-login": "^0.1.7",
+    "@types/connect-sqlite3": "^0.9.2",
+    "@types/cookie-parser": "^1.4.3",
+    "@types/cors": "^2.8.13",
+    "@types/csurf": "^1.11.2",
+    "@types/express": "^4.17.17",
+    "@types/express-session": "^1.17.7",
+    "@types/node": "^20.4.1",
+    "@types/passport": "^1.0.12",
+    "@types/passport-google-oauth20": "^2.0.11",
+    "@types/pluralize": "^0.0.30",
+    "typescript": "^5.1.6"
+  }
+}
