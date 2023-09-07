@@ -13,8 +13,18 @@ export default class GoogleTaskClient implements ITaskClient{
   deleteTask(taskListId: string | ITaskList, taskId: string | ITask): Promise<void> {
     throw new Error("Method not implemented.");
   }
-  getTaskLists(): Promise<ITaskList[]> {
-    throw new Error("Method not implemented.");
+  async getTaskLists(): Promise<ITaskList[]> {
+    const URL = 'http://localhost:3000/google-tasks/task-lists';
+    return await fetch(URL, {
+      method: 'GET',
+      
+    })
+    .then( (res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      throw new Error('Error getting task lists');
+    });
   }
   getTaskList(taskListId: string | ITaskList): Promise<ITaskList> {
     throw new Error("Method not implemented.");

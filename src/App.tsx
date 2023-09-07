@@ -17,7 +17,7 @@ function App() {
             <br/>
           </> :
           <>
-            <a href="http://localhost:4000/googleauth/sign-in"> Sign In via Google Auth </a> 
+            <a href="http://localhost:3000/login/google"> Sign In via Google Auth </a> 
             <br/>
           </>
       }

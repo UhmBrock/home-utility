@@ -16,7 +16,7 @@ const RequireAuth = (props: IProps) => {
     return (
       <>
         <h1> You must be logged in to view this page. </h1>
-        <a href="http://localhost:4000/googleauth/sign-in"> Sign In via Google Auth </a>
+        <a href="http://localhost:3000/googleauth/sign-in"> Sign In via Google Auth </a>
       </>
     );
   }

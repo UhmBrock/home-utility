@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import TaskListView from "./TaskListView";
 import useInterval from "./hooks/useInterval";
 import useAuth from "./hooks/useAuth";
+import GoogleTaskClient from "./clients/GoogleTaskClient";
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface IProps {}
@@ -19,21 +20,26 @@ const TaskPage = (props: IProps) => {
 
   const fetchTaskLists = async () => {
     const start = Date.now();
-    fetch("http://localhost:4000/googleauth/task-lists", {
-      headers: {
-        "Authorization": `Bearer ${auth.getCredentials('Google')}`
-      }
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (!data) {
-          setTaskLists([]);
-        } else {
-          console.log("data: ", data);
-          setTaskLists(data);
-          setFetchTime(Date.now() - start);
-        }
-      });
+
+    const client = new GoogleTaskClient();
+
+    const taskLists = await client.getTaskLists();
+    console.log("taskLists: ", taskLists);
+    // fetch("http://localhost:3000/googleauth/task-lists", {
+    //   headers: {
+    //     "Authorization": `Bearer ${auth.getCredentials('Google')}`
+    //   }
+    // })
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     if (!data) {
+    //       setTaskLists([]);
+    //     } else {
+    //       console.log("data: ", data);
+    //       setTaskLists(data);
+    //       setFetchTime(Date.now() - start);
+    //     }
+    //   });
   };
 
   useEffect(() => {
